@@ -7,7 +7,6 @@ public interface DBProperties {
     //TODO de inlocuit cu IP-ul din Docker
     String IP = "192.168.99.100";
     String PORT = "49161";
-    //TODO de inlocuit cu utilizatorul vostru
     String USER = "system";
     //TODO de inlocuit cu parola voastra
     String PASS = "oracle";

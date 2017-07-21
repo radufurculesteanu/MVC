@@ -1,24 +1,24 @@
 package ro.teamnet.zth.appl.controller;
+import ro.teamnet.zth.api.annotations.Z2HController;
+import ro.teamnet.zth.api.annotations.Z2HRequestMethod;
+import ro.teamnet.zth.api.annotations.Z2HRequestParam;
+import ro.teamnet.zth.appl.domain.Department;
+import ro.teamnet.zth.appl.service.DepartmentService;
 
-import ro.teamnet.zth.api.annotations.MyController;
-import ro.teamnet.zth.api.annotations.MyRequestMethod;
+import java.util.List;
 
-/**
- * Created by Radu.Furculesteanu on 7/20/2017.
- */
-@MyController(urlPath = "/departments")
+@Z2HController(urlPath = "/departments")
 public class DepartmentController {
 
-    @MyRequestMethod(urlPath = "/all", methodType = "GET")
-    public String getAllDepartments()
-    {
-        return "allDepartments";
+    public DepartmentService departmentService;
+
+    @Z2HRequestMethod(urlPath = "/all")
+    public List<Department> getAllDepartments() {
+        return departmentService.findAll();
     }
 
-    @MyRequestMethod(urlPath = "/one",methodType = "GET")
-    public String getOneDepartment()
-    {
-        return "oneRandomDepartment";
+    @Z2HRequestMethod(urlPath = "/one")
+    public Department getOneDepartment(@Z2HRequestParam(name = "id") Long departmentId) {
+        return departmentService.findOne(departmentId);
     }
-
 }
