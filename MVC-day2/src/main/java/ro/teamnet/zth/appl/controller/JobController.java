@@ -26,22 +26,22 @@ public class JobController {
     }
 
     @Z2HRequestMethod(urlPath = "/one")
-    public Job getOne(@Z2HRequestParam(name = "id") String jobId) {
+    public Job getOne(@Z2HRequestParam(name = "jobId") String jobId) {
         return jobService.findOne(jobId);
     }
 
     @Z2HRequestMethod(urlPath = "/one", methodType = HttpMethod.DELETE)
-    public Boolean deleteOneEmployee(@Z2HRequestParam(name = "id") String jobId) {
+    public Boolean deleteOneJob(@Z2HRequestParam(name = "jobId") String jobId) {
         return jobService.delete(jobId);
     }
 
     @Z2HRequestMethod(urlPath = "/create", methodType = HttpMethod.POST)
-    public Job saveEmployee(@Z2HRequestObject Job job) {
+    public Job saveJob(@Z2HRequestObject Job job) {
         return jobService.save(job);
     }
 
     @Z2HRequestMethod(urlPath = "/edit", methodType = HttpMethod.PUT)
-    public Job updateEmployee(@Z2HRequestObject Job job) {
+    public Job updateJob(@Z2HRequestObject Job job) {
         return jobService.update(job);
     }
 

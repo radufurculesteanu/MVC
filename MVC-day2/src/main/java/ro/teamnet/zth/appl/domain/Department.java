@@ -8,20 +8,20 @@ import ro.teamnet.zth.api.annotations.Table;
 public class Department {
 
     @Id(name = "department_id")
-    private Long id;
+    private Long departmentId;
 
     @Column(name = "department_name")
     private String departmentName;
 
     @Column(name = "location_id")
-    private Long location;
+    private Long locationId;
 
-    public Long getId() {
-        return id;
+    public Long getDepartmentId() {
+        return departmentId;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setDepartmentId(Long id) {
+        this.departmentId = id;
     }
 
     public String getDepartmentName() {
@@ -32,12 +32,12 @@ public class Department {
         this.departmentName = departmentName;
     }
 
-    public Long getLocation() {
-        return location;
+    public Long getLocationId() {
+        return locationId;
     }
 
-    public void setLocation(Long location) {
-        this.location = location;
+    public void setLocationId(Long locationId) {
+        this.locationId = locationId;
     }
 
     @Override
@@ -47,7 +47,7 @@ public class Department {
 
         Department that = (Department) o;
 
-        if (!id.equals(that.id)) return false;
+        if (!departmentId.equals(that.departmentId)) return false;
         if (!departmentName.equals(that.departmentName)) return false;
         return true;
 
@@ -55,7 +55,7 @@ public class Department {
 
     @Override
     public int hashCode() {
-        int result = id.hashCode();
+        int result = departmentId.hashCode();
         result = 31 * result + departmentName.hashCode();
         return result;
     }
@@ -63,9 +63,9 @@ public class Department {
     @Override
     public String toString() {
         return "Department{" +
-                "id=" + id +
+                "id=" + departmentId +
                 ", departmentName='" + departmentName + '\'' +
-                ", location=" + location +
+                ", locationId=" + locationId +
                 '}';
     }
 }
